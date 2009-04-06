@@ -1,5 +1,7 @@
 Pysyncr workflow
 
+Clent Program:
+
 1) First time the user opens the program a GUI pops open and asks the user for
     A) server name or IP
         I) Attempts to connect to server and verify that the pysyncr server is operational. If this            works, move on, if not let the user know that hostname/IP is incorrect. Do not let user            proceed.
@@ -15,3 +17,15 @@ Pysyncr workflow
 5) Initial sync from local folder to server folder happens. A notification icon sits in the tray to notify user that the process is taking place.
 
 6) Daemon process kicks off an waits for notification from Kernel if a file changes, if it does, folders sync again.
+
+Server program:
+
+1) Server program checks the system to make sure necessary applications are installed: Python, Rsync,
+
+2) Server creates priviledged user pysyncr and creates and ssl key associated with the account, or a file that it hashes?
+
+3) Installs front end (django) and associates the media folder where user folders will be located.
+
+4) Opens some type of daemon process that listens for incoming rsync/pysyncr connections. Kicks off rsync to client if client folder is empty and server folder is not '''this would be due to multiple clients'''
+
+5)
