@@ -1,3 +1,0 @@
-Figuring out git commit... We need to start documentation.
-
-

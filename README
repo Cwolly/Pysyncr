@@ -1,0 +1,11 @@
+Welcome to PySyncR.
+
+This is a program released under the GNU GPL version 3 or later.
+
+So far not much information is here. This is more a stub. Anything
+potential users should know should be in this file.
+
+Dependencies:
+These are the packages that should be installed:
+	Python
+	python-paramiko (for ssh)
