@@ -11,19 +11,45 @@ Code released under a free software compatible license. See LICENSE for
 more details.
 Original author: Chad Wollenberg
 Code patches by:
-	Nido Media
+    Nido Media
 
 """
 
 import sys
-import paramiko #paramiko implements the python ssh library
+import paramiko #paramiko implements ssh 2
 from twisted.internet import reactor, defer, protocol
+from download_log import access_log
 
 def main():
-	hostname = raw_input ("Please enter the IP or hostname of the pysyncr server: ") #needs to be stored for ssh and rsync connection later
-	port = raw_input ("Please enter the port that the server uses to connect (default is 22):")
-	username = raw_input ("Please create a username: ") #needs to be stored as permanent user authentication on server
-	userpass = raw_input ("Please create a password: ") #needs to be stored as permanent user password on server
+    configure()
+
+def configure():
+    """ Configures the system according to the configuration file.
+
+    Takes raw_input if no default configuration is known. (This should
+    change).
+
+    """
+    config = access_log("configuration")
+    host = config.has('host')
+    if not host:
+        host = raw_input ("Please enter the IP or host name of the pysyncr server: ") #needs to be stored for ssh and rsync connection later
+        config.add('host', host)
+    
+    port = config.has('host')
+    if not port:
+        port = raw_input ("Please enter the port that the server uses to connect (default is 22):")
+        config.add('port', port)
+
+    user = config.has('user')
+    if not user:
+        user = raw_input ("Please create a username: ") #needs to be stored as permanent user authentication on server
+        config.add('user', user)
+
+    password = config.has('password')
+    if not password:
+        password = raw_input ("Please create a password: ") #needs to be stored as permanent user password on server
+        config.add('password', password)
 
 
 class CallbackAndDisconnectProtocol(protocol.Protocol):
@@ -41,12 +67,12 @@ class ConnectionTestFactory(protocol.ClientFactory):
         self.deferred.errback(reason)
 
 def testConnect(hostname, port):
-	testFactory = ConnectionTestFactory( )
-	reactor.connectTCP(host, port, testFactory)
- 	return testFactory.deferred
+    testFactory = ConnectionTestFactory( )
+    reactor.connectTCP(host, port, testFactory)
+    return testFactory.deferred
 
 def handleSuccess(result, port):
-	pass
+    pass
 
 if __name__ == "__main__":
-	main()
+    main()
