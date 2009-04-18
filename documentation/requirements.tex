@@ -1,0 +1,81 @@
+\documentclass{article}
+
+% This is a LaTeX document. You can compile it to a PDF file using the
+% command "pdflatex $texfile". pdflatex is usually part of the texlive
+% package.
+
+\author{Chad Wollenberg \and snkmchnb \and James \and Nido Media}
+
+\title{pysyncr requirements document}
+
+\begin{document}
+
+\maketitle
+
+\abstract
+
+This is the pysyncr requirements article. It lists what is needed for
+the pysyncr to be a success. The requirements should be listed in order
+of importance.
+
+\section{Requirements Template}
+
+  Please use this template in order to add requirements.
+
+  \begin{itemize}
+    \item[Requirement ID] A number to identify the requirement
+    \item[Requirement Type] The type of the requirement. This should be
+    one of the following list:
+    \begin{itemize}
+      \item[Functional Requirement] A requirement which directly affects
+      the functionality of the project
+      \item[Non Functional Requirement] A requirement which does not
+      affect the functionality of the project directly (but may impose
+      limitations).
+      \item[Project Constraint] Something that limits the project as a
+      whole, but not so much the code.
+      \item[Design Constraint] Something that limits the design (I.E.
+      requiring a client-server architecture for some reason).
+    \end{itemize}
+    \item[Description] what is this requirement about
+    \item[Rationale] Justification for this requirement.
+    \item[Use Case] What case exposes this requirement?
+    \item[Fit Criterion] How do we test this requirement is met
+    \item[Priority] how important is it (critical/high/medium/low)
+    \item[Conflicts] other requirements with clash with this one
+    \item[Originator] Where/who does the requirement come from (so we can
+    ask clarification or ask if the requirement is given corrects.
+    \item[Support Material] documents supporting this requirement (usually empty)
+    \item[History] What happened to this requirement
+  \end{itemize}
+
+\section{Requirements}
+
+  \subsection{pysyncr should not require full remote access}
+
+    \begin{itemize}
+      \item[Requirement ID] 1
+      \item[Requirement type] Non functional Requirement
+      \item[Description] pysyncr should work without requiring the
+      remote user to have full access to the machine.
+      \item[Rationale] If the application requires users to have
+      complete access to the machine, this means that the whole system
+      will be at most as secure as the pysyncr application is. This is
+      an unacceptable situation if the remote users cannot be trusted
+      with password or public key information.
+      \item[Use Case] People may choose to use pysyncr to allow people
+      access to the pysyncr service who shouldn't be trusted with full
+      access to the machine.
+      \item[Fit Criterion] pysyncr contains tests for the security of
+      each access.
+      \item[Priority] High
+      \item[Conflicts] None
+      \item[Originator] Nido Media
+      \item[Support Material] None
+      \item[History]
+      \begin{itemize}
+        \item Sat Apr 18, 20:20 Added to the list.
+      \end{itemize}
+    \end{itemize}
+
+\end{document}
