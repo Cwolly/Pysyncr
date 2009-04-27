@@ -1,6 +1,10 @@
 Welcome to PySyncR.
 
-This is a program released under the GNU GPL version 3 or later.
+This is a program released under the GNU GPL version 3 or later. Read
+LICENSE for more details. 
+
+For documentation, look in the documentation directory. For the code for
+this program, look under the code directory.
 
 So far not much information is here. This is more a stub. Anything
 potential users should know should be in this file.
