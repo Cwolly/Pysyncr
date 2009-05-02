@@ -9,7 +9,15 @@ this program, look under the code directory.
 So far not much information is here. This is more a stub. Anything
 potential users should know should be in this file.
 
+This project is still in development. In the documentation directory;
+there is a requirements.tex file which defines what this program is
+supposed to do. Take a look at this file and improve it when you can
+before looking in the code directory to start hacking. In the end, the
+requirement document functions as a checklist to see if all desired
+functionality has been implemented.
+
 Dependencies:
 These are the packages that should be installed:
 	Python
 	python-paramiko (for ssh)
+

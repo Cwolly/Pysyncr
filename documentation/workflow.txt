@@ -23,7 +23,11 @@ Server program:
 1) Server program checks the system to make sure necessary applications are installed: Python, Rsync,
 
 2) Server creates priviledged user pysyncr and creates and ssl key associated with the account, or a file that it hashes?
-
+#nido: actually; you can have multiple ssh-keys associated to one
+#      account; the safest would be to have the client create a ssh-key
+#      and send that to the system out-of-band. (I.E. by the user
+#      itself). We could create a spiffy key upload page or something
+#      alike.
 3) Installs front end (django) and associates the media folder where user folders will be located.
 
 4) Opens some type of daemon process that listens for incoming rsync/pysyncr connections. Kicks off rsync to client if client folder is empty and server folder is not '''this would be due to multiple clients'''
