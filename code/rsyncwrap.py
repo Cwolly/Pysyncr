@@ -13,6 +13,9 @@ from subprocess import call
 from sys import stderr
 from sys import exit
 
+# Set path to rsync command
+rsync = "rsync"
+
 
 def main():
     source = raw_input ("Please enter source directory: ")
@@ -21,14 +24,25 @@ def main():
     exit(exit_value)
 
 
-def sync(source, target):
-    rsync = "rsync"
-    arguments = "-a"
-    cmd = "%s %s %s %s" % (rsync, arguments, source, target)
-
+def echo(cmd):
+    """
+    Echo and execute command called via subprocess.call
+    """
     print cmd
     ret = call (cmd, shell=True)
     return ret
+
+
+def sync(source, target):
+    arguments = "-a"
+    cmd = "%s %s %s %s" % (rsync, arguments, source, target)
+    return echo(cmd)
+    
+def delete(source, target):
+    arguments = "-a --delete"
+    cmd = "%s %s %s %s" % (rsync, arguments, source, target)
+    return echo(cmd)
+ 
 
 if __name__ == "__main__":
     main()
